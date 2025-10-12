@@ -18,7 +18,7 @@
                 <li><a href="#contacto">Fale Conosco</a></li>
             </ul>
 
-            <a href="#" class="action_btn">Pedir um orçamento</a>
+            <!-- <a href="#" class="action_btn">Pedir um orçamento</a> -->
             
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
@@ -31,15 +31,15 @@
                 <li><a href="#sobre">Sobre nós</a></li>
                 <li><a href="#contacto">Fale Conosco</a></li>
 
-                <li><a href="#" class="action_btn">Pedir um orçamento</a></li>
+                <!-- <li><a href="#" class="action_btn">Pedir um orçamento</a></li> -->
             </div>
         </nav>
     </header>
 
     <div class="carousel-container">
         <div class="carousel">
-            <img src="imgs/img-slider/img-1.png" alt="Imagem 1">
-            <img src="imgs/img-slider/img-2.jpg" alt="Imagem 2">
+            <img src="imgs/img-slider/img-1.jpeg" alt="Imagem 1">
+            <img src="imgs/img-slider/img-2.jpeg" alt="Imagem 2">
             <img src="imgs/img-slider/img-3.jpeg" alt="Imagem 3">
         </div>
         <button class="carousel-btn prev-btn">&#10094;</button>
@@ -58,38 +58,212 @@
 
             <div class="container-apresentacao">
                 <div class="apresentacao-1">
-                    <img src="imgs/jardinagem.png" class="imagem" alt="jardinagem">
-                    <div class="descricao">
-                        <h3>Jardinagem</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, tenetur!</p>
+                        <img src="imgs/jardinagem.png" class="imagem" alt="jardinagem">
+                        <div class="descricao">
+                            <h3>Jardinagem</h3>
+                            <p>Manutenção de jardins, podas, limpeza e criação de espaços verdes com rigor e estética.</p>
+                        </div>
+                    </div>
+
+                    <div class="apresentacao-2">
+                        <div class="descricao">
+                            <h3>Canalização</h3>
+                            <p>Instalação, reparação e desentupimento de sistemas de água em residências e empresas.</p>
+                        </div>
+                        <img src="imgs/canalizacao.jpg" class="imagem" alt="canalizacao">
+                    </div>
+
+                    <div class="apresentacao-3">
+                        <img src="imgs/eletricidade.jpeg" class="imagem" alt="eletricidade">
+                        <div class="descricao">
+                            <h3>Eletricidade</h3>
+                            <p>Serviços elétricos seguros e certificados, desde instalações a manutenções e reparações.</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <h2>Nossos Serviços</h2>
+
+            <div class="container-servicos">
+
+                <!-- Jardinagem -->
+                <div class="servico" onclick="this.classList.toggle('flip')">
+                    <div class="servico-inner">
+                        <div class="servico-front">
+                            <img src="imgs/img-servicos/s1.png" class="img-service" alt="serviço-1">
+                            <h3>Jardinagem</h3>
+                        </div>
+                        <div class="servico-back">
+                            <p>Manutenção de jardins, podas e criação de espaços verdes com rigor e estética.</p>
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="apresentacao-2">
-                    <div class="descricao">
-                        <h3>Canalização</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, tenetur!</p>
+                <!-- Sistemas de Irrigação -->
+                <div class="servico" onclick="this.classList.toggle('flip')">
+                    <div class="servico-inner">
+                        <div class="servico-front">
+                            <img src="imgs/img-servicos/s2.png" class="img-service" alt="serviço-2">
+                            <h3>Sistemas de Irrigação</h3>
+                        </div>
+                        <div class="servico-back">
+                            <p>Instalação e manutenção de sistemas automáticos para uma rega eficiente e sustentável.</p>
+                        </div>
                     </div>
-                    <img src="imgs/canalizacao.jpg" class="imagem" alt="canalizacao">
                 </div>
 
+                <!-- Automação -->
+                <div class="servico" onclick="this.classList.toggle('flip')">
+                    <div class="servico-inner">
+                        <div class="servico-front">
+                            <img src="imgs/img-servicos/s3.png" class="img-service" alt="serviço-3">
+                            <h3>Automação</h3>
+                        </div>
+                        <div class="servico-back">
+                            <p>Soluções inteligentes para controlo de iluminação, motores e sistemas residenciais ou empresariais.</p>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="apresentacao-3">
-                    <img src="imgs/eletricidade.jpeg" class="imagem" alt="eletricidade">
-                    <div class="descricao">
-                        <h3>Eletricidade</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, tenetur!</p>
+                <!-- Eletricidade -->
+                <div class="servico" onclick="this.classList.toggle('flip')">
+                    <div class="servico-inner">
+                        <div class="servico-front">
+                            <img src="imgs/img-servicos/s4.png" class="img-service" alt="serviço-4">
+                            <h3>Eletricidade</h3>
+                        </div>
+                        <div class="servico-back">
+                            <p>Instalações, reparações e manutenção elétrica com segurança e profissionalismo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistemas Fotovoltaicos -->
+                <div class="servico" onclick="this.classList.toggle('flip')">
+                    <div class="servico-inner">
+                        <div class="servico-front">
+                            <img src="imgs/img-servicos/s5.png" class="img-service" alt="serviço-5">
+                            <h3>Sistemas Fotovoltaicos</h3>
+                        </div>
+                        <div class="servico-back">
+                            <p>Instalação de painéis solares e soluções de energia renovável para casas e empresas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canalização -->
+                <div class="servico" onclick="this.classList.toggle('flip')">
+                    <div class="servico-inner">
+                        <div class="servico-front">
+                            <img src="imgs/img-servicos/s6.png" class="img-service" alt="serviço-6">
+                            <h3>Canalização</h3>
+                        </div>
+                        <div class="servico-back">
+                            <p>Instalação, reparação e manutenção de sistemas de água com eficiência e segurança.</p>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </section>
+
+
+        <section id="sobre">
+            <div class="banner-sobre">
+                <img src="imgs/sobre.jpeg" alt="Sobre a JAS - Jardinagem e Serviços">
+            </div>
+
+            <div class="sobre-descricao">
+                <h2>Sobre Nós</h2>
+                <p>
+                    A <strong>JAS – Jardinagem, Automação & Serviços</strong> é a parceira ideal para transformar
+                    e cuidar do seu espaço verde. Com experiência e uma equipa dedicada, oferecemos uma ampla
+                    gama de soluções para tornar o seu jardim mais bonito, funcional e sustentável.
+                </p>
+            </div>
+
+
+        <div class="container-info">
+
+            <div class="card-info">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="imgs/img-sobre/mission.png" alt="Missão">
+                        <h3>Missão</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>
+                            Garantir soluções sustentáveis e eficientes em jardinagem, automação e serviços,
+                            promovendo bem-estar e qualidade em cada projeto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-info">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="imgs/img-sobre/vision.png" alt="Visão">
+                        <h3>Visão</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>
+                            Ser referência no mercado pela inovação, qualidade e compromisso com o cliente,
+                            liderando com responsabilidade ambiental.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-info">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="imgs/img-sobre/values.png" alt="Valores">
+                        <h3>Valores</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>
+                            Ética, sustentabilidade, profissionalismo, confiança, inovação e respeito pelo cliente
+                            e pelo meio ambiente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </section>
+
+
+        <section id="contacto">
+            <h2>Fale Connosco</h2>
+
+            <form action="">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="seu nome completo" required>
+                <label for="email">Email</label>
+                <input type="email" id="" placeholder="ex paulo@gmail.com" required>
+                <textarea name="mensagem" id="mensagem"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
     </main>
 
     <!-- footer -->
      <footer>
+        <div class="container-footer">
+            <img src="imgs/JAS-Logo - 1.jpg" class="logo" alt="jaservicos-logo">
 
+            <div class="nossos-contactos">
+                <h3>Nossos Contactos</h3>
+                <a href="facebook.com"><img src="imgs/img-contacto/whatsapp.png" alt="whatsapp"></a>
+                <a href="https://www.google.com" rel="external"><img src="imgs/img-contacto/gmail.png" alt="gmail"></a>
+            </div>
+
+        </div>
+        <p><strong>COPYRIGHT 2025 JASERVICOS, TODOS DIREITOS RESERVADOS.</strong></p>
      </footer>
 
     <script src="script.js"></script>

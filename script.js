@@ -58,3 +58,11 @@ toggleBtn.onclick = function () {
         setInterval(() => {
             goToSlide(currentIndex + 1);
         }, 5000);
+
+
+        
+    document.querySelectorAll('.card-info').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flip');
+        });
+    });
