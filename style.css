@@ -426,7 +426,7 @@ header {
         }
 
         .servico {
-            width: 200px;  /* Evita cards muito grandes */
+            width: 350px;  /* Evita cards muito grandes */
             height: 280px;
             perspective: 1000px;
         }
@@ -466,7 +466,7 @@ header {
         }
 
         .servico-front img {
-            width: 40%;
+            width: 30%;
             margin-bottom: 10px;
         }
 
