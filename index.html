@@ -38,9 +38,9 @@
 
     <div class="carousel-container">
         <div class="carousel">
-            <img src="imgs/img-slider/img-1.jpeg" alt="Imagem 1">
-            <img src="imgs/img-slider/img-2.jpeg" alt="Imagem 2">
-            <img src="imgs/img-slider/img-3.jpeg" alt="Imagem 3">
+            <img src="imgs/slider/img-1.jpeg" alt="Imagem 1">
+            <img src="imgs/slider/img-2.jpeg" alt="Imagem 2">
+            <img src="imgs/slider/img-3.jpeg" alt="Imagem 3">
         </div>
         <button class="carousel-btn prev-btn">&#10094;</button>
         <button class="carousel-btn next-btn">&#10095;</button>
@@ -53,12 +53,12 @@
 
     <!-- main -->
     <main>
-        <section id="apresentacao">
+        <section id="apresentacao" class="section">
             <h2>Soluções Verdes e Energéticas</h2>
 
             <div class="container-apresentacao">
                 <div class="apresentacao-1">
-                        <img src="imgs/jardinagem.png" class="imagem" alt="jardinagem">
+                        <img src="imgs/apresentacao/jardinagem.png" class="imagem" alt="jardinagem">
                         <div class="descricao">
                             <h3>Jardinagem</h3>
                             <p>Manutenção de jardins, podas, limpeza e criação de espaços verdes com rigor e estética.</p>
@@ -70,20 +70,28 @@
                             <h3>Canalização</h3>
                             <p>Instalação, reparação e desentupimento de sistemas de água em residências e empresas.</p>
                         </div>
-                        <img src="imgs/canalizacao.jpg" class="imagem" alt="canalizacao">
+                        <img src="imgs/apresentacao/canalizacao.jpg" class="imagem" alt="canalizacao">
                     </div>
 
                     <div class="apresentacao-3">
-                        <img src="imgs/eletricidade.jpeg" class="imagem" alt="eletricidade">
+                        <img src="imgs/apresentacao/eletricidade.jpeg" class="imagem" alt="eletricidade">
                         <div class="descricao">
                             <h3>Eletricidade</h3>
                             <p>Serviços elétricos seguros e certificados, desde instalações a manutenções e reparações.</p>
                         </div>
                     </div>
+
+                    <div class="apresentacao-4">
+                        <img src="imgs/apresentacao/vasos.jpg" alt="vasos">
+                        <div class="descricao">
+                            <h3>Vasos Decorativos</h3>
+                            <p>Cuidamos do design e disposição de vasos para valorizar o seu espaço verde com estilo e harmonia.</p>
+                        </div>
+                    </div>
             </div>
         </section>
 
-        <section id="servicos">
+        <section id="servicos" class="section">
             <h2>Nossos Serviços</h2>
 
             <div class="container-servicos">
@@ -92,7 +100,7 @@
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/img-servicos/s1.png" class="img-service" alt="serviço-1">
+                            <img src="imgs/servicos/s1.png" class="img-service" alt="serviço-1">
                             <h3>Jardinagem</h3>
                         </div>
                         <div class="servico-back">
@@ -105,7 +113,7 @@
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/img-servicos/s2.png" class="img-service" alt="serviço-2">
+                            <img src="imgs/servicos/s2.png" class="img-service" alt="serviço-2">
                             <h3>Sistemas de Irrigação</h3>
                         </div>
                         <div class="servico-back">
@@ -118,7 +126,7 @@
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/img-servicos/s3.png" class="img-service" alt="serviço-3">
+                            <img src="imgs/servicos/s3.png" class="img-service" alt="serviço-3">
                             <h3>Automação</h3>
                         </div>
                         <div class="servico-back">
@@ -131,7 +139,7 @@
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/img-servicos/s4.png" class="img-service" alt="serviço-4">
+                            <img src="imgs/servicos/s4.png" class="img-service" alt="serviço-4">
                             <h3>Eletricidade</h3>
                         </div>
                         <div class="servico-back">
@@ -144,7 +152,7 @@
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/img-servicos/s5.png" class="img-service" alt="serviço-5">
+                            <img src="imgs/servicos/s5.png" class="img-service" alt="serviço-5">
                             <h3>Sistemas Fotovoltaicos</h3>
                         </div>
                         <div class="servico-back">
@@ -157,7 +165,7 @@
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/img-servicos/s6.png" class="img-service" alt="serviço-6">
+                            <img src="imgs/servicos/s6.png" class="img-service" alt="serviço-6">
                             <h3>Canalização</h3>
                         </div>
                         <div class="servico-back">
@@ -170,15 +178,15 @@
         </section>
 
 
-        <section id="sobre">
+        <section id="sobre" class="section">
             <div class="banner-sobre">
-                <img src="imgs/sobre.jpeg" alt="Sobre a JAS - Jardinagem e Serviços">
+                <img src="imgs/sobre/sobre.jpeg" alt="Sobre a JAS - Jardinagem e Serviços">
             </div>
 
             <div class="sobre-descricao">
                 <h2>Sobre Nós</h2>
                 <p>
-                    A <strong>JAS – Jardinagem, Automação & Serviços</strong> é a parceira ideal para transformar
+                    A <strong>JAS - Jardinagem, Automação & Serviços</strong> é a parceira ideal para transformar
                     e cuidar do seu espaço verde. Com experiência e uma equipa dedicada, oferecemos uma ampla
                     gama de soluções para tornar o seu jardim mais bonito, funcional e sustentável.
                 </p>
@@ -190,7 +198,7 @@
             <div class="card-info">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="imgs/img-sobre/mission.png" alt="Missão">
+                        <img src="imgs/sobre/mission.png" alt="Missão">
                         <h3>Missão</h3>
                     </div>
                     <div class="card-back">
@@ -205,7 +213,7 @@
             <div class="card-info">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="imgs/img-sobre/vision.png" alt="Visão">
+                        <img src="imgs/sobre/vision.png" alt="Visão">
                         <h3>Visão</h3>
                     </div>
                     <div class="card-back">
@@ -220,7 +228,7 @@
             <div class="card-info">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="imgs/img-sobre/values.png" alt="Valores">
+                        <img src="imgs/sobre/values.png" alt="Valores">
                         <h3>Valores</h3>
                     </div>
                     <div class="card-back">
@@ -234,36 +242,63 @@
 
         </div>
 
+        <div class="extra-info">
+            <div class="location">
+                <img src="imgs/sobre/location.png" alt="location">
+                <h3>Localização</h3>
+                <p>Cabo - Delgado</p>
+                <p>Cidade de Pemba</p>
+                <p>Alto-Gingone</p>
+            </div>
+
+            <div class="phone">
+                <img src="imgs/sobre/phone-call.png" alt="phone-call">
+                <h3>Contactos</h3>
+                <p>84 513 9685</p>
+                <p>87 081 7058</p>
+                <p>84 566 1410</p>
+            </div>
+        </div>
+
+
+
+
         </section>
 
 
-        <section id="contacto">
+        <section id="contacto" class="section">
             <h2>Fale Connosco</h2>
 
-            <form action="">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="seu nome completo" required>
-                <label for="email">Email</label>
-                <input type="email" id="" placeholder="ex paulo@gmail.com" required>
-                <textarea name="mensagem" id="mensagem"></textarea>
-                <button type="submit">Enviar</button>
-            </form>
+        <form id="contact-form" method="POST">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="ex: paulo@gmail.com" required>
+
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+
         </section>
     </main>
 
     <!-- footer -->
      <footer>
         <div class="container-footer">
-            <img src="imgs/JAS-Logo - 1.jpg" class="logo" alt="jaservicos-logo">
+            <img src="imgs/jaservicos-logo2.jpg" class="logo" alt="jaservicos-logo">
 
             <div class="nossos-contactos">
                 <h3>Nossos Contactos</h3>
-                <a href="facebook.com"><img src="imgs/img-contacto/whatsapp.png" alt="whatsapp"></a>
-                <a href="https://www.google.com" rel="external"><img src="imgs/img-contacto/gmail.png" alt="gmail"></a>
+                <a href="#https://"><img src="imgs/contacto/whatsapp.png" alt="whatsapp"></a>
+                <a href="#https://" rel="external"><img src="imgs/contacto/gmail.png" alt="gmail"></a>
             </div>
 
         </div>
-        <p><strong>COPYRIGHT 2025 JASERVICOS, TODOS DIREITOS RESERVADOS.</strong></p>
+        <p><strong>&copy; 2025 JASERVICOS, TODOS OS DIREITOS RESERVADOS.</strong></p>
+
      </footer>
 
     <script src="script.js"></script>

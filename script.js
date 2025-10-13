@@ -66,3 +66,63 @@ toggleBtn.onclick = function () {
             card.classList.toggle('flip');
         });
     });
+
+const menuLinks = document.querySelectorAll(".navbar .links a");
+const sections = document.querySelectorAll("section");
+
+// Calcula altura do header
+function getHeaderHeight() {
+    const header = document.querySelector("header");
+    return header ? header.offsetHeight : 0;
+}
+
+// Scroll suave ao clicar nos links
+menuLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        const href = link.getAttribute("href");
+        if (!href.startsWith("#")) return;
+        e.preventDefault();
+
+        const targetSection = document.querySelector(href);
+        if (!targetSection) return;
+
+        const offsetTop = targetSection.offsetTop - getHeaderHeight() - 10; // 10px de folga
+        window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth"
+        });
+
+        // Atualiza classe active no clique
+        menuLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+    });
+});
+
+// Atualiza link ativo ao rolar a página
+function changeActiveLink() {
+    let index = sections.length;
+
+    while (--index && window.scrollY + getHeaderHeight() + 50 < sections[index].offsetTop) {}
+    
+    menuLinks.forEach(link => link.classList.remove("active"));
+    if (menuLinks[index]) menuLinks[index].classList.add("active");
+}
+
+window.addEventListener("scroll", changeActiveLink);
+changeActiveLink();
+
+// Nova lógica para transição suave ao scroll (usando IntersectionObserver)
+const scrollSections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Para animar apenas uma vez
+        }
+    });
+}, { threshold: 0.1 });
+
+scrollSections.forEach(section => {
+    observer.observe(section);
+});
