@@ -1,3 +1,6 @@
+// =========================
+// 1. Menu Dropdown Toggle
+// =========================
 const toggleBtn = document.querySelector('.toggle_btn');
 const toggleBtnIcon = document.querySelector('.toggle_btn i');
 const dropDownMenu = document.querySelector('.dropdown_menu');
@@ -12,61 +15,66 @@ toggleBtn.onclick = function () {
 };
 
 
+// =========================
+// 2. Carrossel de Imagens
+// =========================
+const carousel = document.querySelector('.carousel');
+const images = document.querySelectorAll('.carousel img');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const indicators = document.querySelectorAll('.indicator');
+let currentIndex = 0;
+const totalImages = images.length;
 
-
-
-
-
-
-
-
-        const carousel = document.querySelector('.carousel');
-        const images = document.querySelectorAll('.carousel img');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const indicators = document.querySelectorAll('.indicator');
-        let currentIndex = 0;
-        const totalImages = images.length;
-
-        function updateCarousel() {
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        function goToSlide(index) {
-            currentIndex = (index + totalImages) % totalImages;
-            updateCarousel();
-        }
-
-        nextBtn.addEventListener('click', () => {
-            goToSlide(currentIndex + 1);
-        });
-
-        prevBtn.addEventListener('click', () => {
-            goToSlide(currentIndex - 1);
-        });
-
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                goToSlide(index);
-            });
-        });
-
-        // Auto-slide opcional
-        setInterval(() => {
-            goToSlide(currentIndex + 1);
-        }, 5000);
-
-
-        
-    document.querySelectorAll('.card-info').forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flip');
-        });
+// Atualiza a posição do carrossel e os indicadores
+function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
     });
+}
 
+// Vai para um slide específico
+function goToSlide(index) {
+    currentIndex = (index + totalImages) % totalImages;
+    updateCarousel();
+}
+
+// Navegação pelos botões
+nextBtn.addEventListener('click', () => {
+    goToSlide(currentIndex + 1);
+});
+
+prevBtn.addEventListener('click', () => {
+    goToSlide(currentIndex - 1);
+});
+
+// Navegação pelos indicadores
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        goToSlide(index);
+    });
+});
+
+// Auto-slide opcional a cada 5 segundos
+setInterval(() => {
+    goToSlide(currentIndex + 1);
+}, 5000);
+
+
+// =========================
+// 3. Flip de Cartões
+// =========================
+document.querySelectorAll('.card-info').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flip');
+    });
+});
+
+
+// ================================
+// 4. Scroll Suave e Link Ativo
+// ================================
 const menuLinks = document.querySelectorAll(".navbar .links a");
 const sections = document.querySelectorAll("section");
 
@@ -76,7 +84,7 @@ function getHeaderHeight() {
     return header ? header.offsetHeight : 0;
 }
 
-// Scroll suave ao clicar nos links
+// Scroll suave ao clicar nos links do menu
 menuLinks.forEach(link => {
     link.addEventListener("click", e => {
         const href = link.getAttribute("href");
@@ -86,7 +94,7 @@ menuLinks.forEach(link => {
         const targetSection = document.querySelector(href);
         if (!targetSection) return;
 
-        const offsetTop = targetSection.offsetTop - getHeaderHeight() - 10; // 10px de folga
+        const offsetTop = targetSection.offsetTop - getHeaderHeight() - 10;
         window.scrollTo({
             top: offsetTop,
             behavior: "smooth"
@@ -98,7 +106,7 @@ menuLinks.forEach(link => {
     });
 });
 
-// Atualiza link ativo ao rolar a página
+// Atualiza link ativo com base no scroll
 function changeActiveLink() {
     let index = sections.length;
 
@@ -111,14 +119,17 @@ function changeActiveLink() {
 window.addEventListener("scroll", changeActiveLink);
 changeActiveLink();
 
-// Nova lógica para transição suave ao scroll (usando IntersectionObserver)
+
+// =========================================
+// 5. Animação com IntersectionObserver
+// =========================================
 const scrollSections = document.querySelectorAll('.section');
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // Para animar apenas uma vez
+            observer.unobserve(entry.target); // Anima apenas uma vez
         }
     });
 }, { threshold: 0.1 });

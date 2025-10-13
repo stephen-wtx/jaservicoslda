@@ -1,5 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt"> <!-- Alterado para 'pt' pois conteúdo está em português; melhora acessibilidade SEO -->
+<!-- ========================================
+     HEAD: Configurações básicas da página
+     ========================================
+     - Meta charset: Define encoding UTF-8 para caracteres especiais (ex: acentos em PT).
+     - Viewport: Responsividade mobile (width=device-width, zoom inicial 1).
+     - Font Awesome: Ícones (fa-bars/fa-xmark para toggle menu mobile).
+     - Título: Nome da empresa.
+     - Link CSS: Estilos externos.
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,100 +16,140 @@
     <title>JASERVIÇOS LDA</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<!-- ========================================
+     BODY: Conteúdo principal
+     ========================================
+     - Estrutura: Header fixo, carousel (slider inicial), main com seções, footer.
+     - JS (no final): Controla toggle menu, carousel, flip cards, scroll suave/active links, animações de entrada.
+-->
 <body>
+    <!-- ========================================
+         HEADER: Navegação fixa no topo
+         ========================================
+         - .navbar: Flex para logo, links, toggle.
+         - Links: Ancors para seções (#id); JS adiciona 'active' no scroll/clique.
+         - Toggle btn: Ícone bars (mobile); onclick via JS troca para xmark e abre dropdown.
+         - Dropdown: Menu mobile (oculto em desktop via CSS media query); itens repetem links.
+         - Action btn: Comentado (não usado; removido de funcionalidade).
+         - Acessibilidade: Alt em img logo; href em links para scroll suave (CSS scroll-behavior + JS offset para header fixo).
+    -->
     <header>
         <nav class="navbar">
-            <div class="logo"><a href="#home"><img src="imgs/jaservicos-logo.png" alt=""></a></div>
+            <div class="logo"><a href="#home"><img src="imgs/jaservicos-logo.png" alt="Logo JAServiços"></a></div>
             <ul class="links">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#sobre">Sobre nós</a></li>
                 <li><a href="#contacto">Fale Conosco</a></li>
             </ul>
-
-            <!-- <a href="#" class="action_btn">Pedir um orçamento</a> -->
             
             <div class="toggle_btn">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars"></i> <!-- Ícone menu; JS troca para fa-xmark quando open -->
             </div>
 
-            <!-- dropdown -->
+            <!-- Dropdown Menu Mobile: Toggle via JS (class 'open' adicionada no clique) -->
             <div class="dropdown_menu">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#sobre">Sobre nós</a></li>
                 <li><a href="#contacto">Fale Conosco</a></li>
-
-                <!-- <li><a href="#" class="action_btn">Pedir um orçamento</a></li> -->
             </div>
         </nav>
     </header>
 
-    <div class="carousel-container">
+    <!-- ========================================
+         CARROSSEL (SLIDER INICIAL)
+         ========================================
+         - Container com overflow hidden; posicionamento relativo para botões/indicadores.
+         - .carousel: Flex com imagens lado a lado; JS atualiza transform translateX para slide.
+         - Botões prev/next: onclick via JS (goToSlide index +/-1).
+         - Indicadores: Bolinhas; JS toggle 'active' na imagem atual.
+         - Auto-slide: setInterval no JS a cada 5s.
+         - Alt em imgs para acessibilidade; object-fit via CSS.
+    -->
+    <div class="carousel-container" id="home">
         <div class="carousel">
-            <img src="imgs/slider/img-1.jpeg" alt="Imagem 1">
-            <img src="imgs/slider/img-2.jpeg" alt="Imagem 2">
-            <img src="imgs/slider/img-3.jpeg" alt="Imagem 3">
+            <img src="imgs/slider/img-1.jpeg" alt="Slider Imagem 1: Serviços Verdes">
+            <img src="imgs/slider/img-2.jpeg" alt="Slider Imagem 2: Automação e Energia">
+            <img src="imgs/slider/img-3.jpeg" alt="Slider Imagem 3: Jardinagem Profissional">
         </div>
-        <button class="carousel-btn prev-btn">&#10094;</button>
-        <button class="carousel-btn next-btn">&#10095;</button>
+        <button class="carousel-btn prev-btn" aria-label="Slide Anterior">&#10094;</button>
+        <button class="carousel-btn next-btn" aria-label="Próximo Slide">&#10095;</button>
         <div class="carousel-indicators">
-            <div class="indicator active"></div>
-            <div class="indicator"></div>
-            <div class="indicator"></div>
+            <div class="indicator active" onclick="goToSlide(0)"></div> <!-- Indicadores clicáveis via JS -->
+            <div class="indicator" onclick="goToSlide(1)"></div>
+            <div class="indicator" onclick="goToSlide(2)"></div>
         </div>
     </div>
 
-    <!-- main -->
+    <!-- ========================================
+         MAIN: Conteúdo principal com seções
+         ========================================
+         - Cada section tem id para ancoras e class 'section' para animação de entrada (JS IntersectionObserver adiciona 'visible').
+         - Animações: Fade-in/slide-up no scroll.
+    -->
     <main>
+        <!-- ========================================
+             SEÇÃO APRESENTAÇÃO
+             ========================================
+             - Título e blocos de serviços introdutórios.
+             - Container flex wrap; blocos alternam imagem/texto.
+             - Imagens com alt descritivo; responsivo via CSS (empilha em mobile).
+        -->
         <section id="apresentacao" class="section">
             <h2>Soluções Verdes e Energéticas</h2>
 
             <div class="container-apresentacao">
                 <div class="apresentacao-1">
-                        <img src="imgs/apresentacao/jardinagem.png" class="imagem" alt="jardinagem">
-                        <div class="descricao">
-                            <h3>Jardinagem</h3>
-                            <p>Manutenção de jardins, podas, limpeza e criação de espaços verdes com rigor e estética.</p>
-                        </div>
+                    <img src="imgs/apresentacao/jardinagem.png" class="imagem" alt="Jardinagem: Manutenção de Espaços Verdes">
+                    <div class="descricao">
+                        <h3>Jardinagem</h3>
+                        <p>Manutenção de jardins, podas, limpeza e criação de espaços verdes com rigor e estética.</p>
                     </div>
+                </div>
 
-                    <div class="apresentacao-2">
-                        <div class="descricao">
-                            <h3>Canalização</h3>
-                            <p>Instalação, reparação e desentupimento de sistemas de água em residências e empresas.</p>
-                        </div>
-                        <img src="imgs/apresentacao/canalizacao.jpg" class="imagem" alt="canalizacao">
+                <div class="apresentacao-2">
+                    <div class="descricao">
+                        <h3>Canalização</h3>
+                        <p>Instalação, reparação e desentupimento de sistemas de água em residências e empresas.</p>
                     </div>
+                    <img src="imgs/apresentacao/canalizacao.jpg" class="imagem" alt="Canalização: Sistemas de Água">
+                </div>
 
-                    <div class="apresentacao-3">
-                        <img src="imgs/apresentacao/eletricidade.jpeg" class="imagem" alt="eletricidade">
-                        <div class="descricao">
-                            <h3>Eletricidade</h3>
-                            <p>Serviços elétricos seguros e certificados, desde instalações a manutenções e reparações.</p>
-                        </div>
+                <div class="apresentacao-3">
+                    <img src="imgs/apresentacao/eletricidade.jpeg" class="imagem" alt="Eletricidade: Instalações Seguras">
+                    <div class="descricao">
+                        <h3>Eletricidade</h3>
+                        <p>Serviços elétricos seguros e certificados, desde instalações a manutenções e reparações.</p>
                     </div>
+                </div>
 
-                    <div class="apresentacao-4">
-                        <img src="imgs/apresentacao/vasos.jpg" alt="vasos">
-                        <div class="descricao">
-                            <h3>Vasos Decorativos</h3>
-                            <p>Cuidamos do design e disposição de vasos para valorizar o seu espaço verde com estilo e harmonia.</p>
-                        </div>
+                <div class="apresentacao-4">
+                    <img src="imgs/apresentacao/vasos.jpg" alt="Vasos Decorativos">
+                    <div class="descricao">
+                        <h3>Vasos Decorativos</h3>
+                        <p>Cuidamos do design e disposição de vasos para valorizar o seu espaço verde com estilo e harmonia.</p>
                     </div>
+                </div>
             </div>
         </section>
 
+        <!-- ========================================
+             SEÇÃO SERVIÇOS
+             ========================================
+             - Cards flipáveis: onclick inline toggle 'flip' (JS poderia delegar, mas funcional).
+             - Cada card: .servico-inner com front/back; CSS rotateY no flip.
+             - Imagens e textos com alt/class; acessibilidade via cursor pointer implícito.
+        -->
         <section id="servicos" class="section">
             <h2>Nossos Serviços</h2>
 
             <div class="container-servicos">
-
-                <!-- Jardinagem -->
+                <!-- Card Jardinagem: Clique toggle flip via class no JS/CSS -->
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/servicos/s1.png" class="img-service" alt="serviço-1">
+                            <img src="imgs/servicos/s1.png" class="img-service" alt="Ícone Jardinagem">
                             <h3>Jardinagem</h3>
                         </div>
                         <div class="servico-back">
@@ -109,11 +158,11 @@
                     </div>
                 </div>
 
-                <!-- Sistemas de Irrigação -->
+                <!-- Card Sistemas de Irrigação -->
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/servicos/s2.png" class="img-service" alt="serviço-2">
+                            <img src="imgs/servicos/s2.png" class="img-service" alt="Ícone Irrigação">
                             <h3>Sistemas de Irrigação</h3>
                         </div>
                         <div class="servico-back">
@@ -122,11 +171,11 @@
                     </div>
                 </div>
 
-                <!-- Automação -->
+                <!-- Card Automação -->
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/servicos/s3.png" class="img-service" alt="serviço-3">
+                            <img src="imgs/servicos/s3.png" class="img-service" alt="Ícone Automação">
                             <h3>Automação</h3>
                         </div>
                         <div class="servico-back">
@@ -135,11 +184,11 @@
                     </div>
                 </div>
 
-                <!-- Eletricidade -->
+                <!-- Card Eletricidade -->
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/servicos/s4.png" class="img-service" alt="serviço-4">
+                            <img src="imgs/servicos/s4.png" class="img-service" alt="Ícone Eletricidade">
                             <h3>Eletricidade</h3>
                         </div>
                         <div class="servico-back">
@@ -148,11 +197,11 @@
                     </div>
                 </div>
 
-                <!-- Sistemas Fotovoltaicos -->
+                <!-- Card Sistemas Fotovoltaicos -->
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/servicos/s5.png" class="img-service" alt="serviço-5">
+                            <img src="imgs/servicos/s5.png" class="img-service" alt="Ícone Fotovoltaicos">
                             <h3>Sistemas Fotovoltaicos</h3>
                         </div>
                         <div class="servico-back">
@@ -161,11 +210,11 @@
                     </div>
                 </div>
 
-                <!-- Canalização -->
+                <!-- Card Canalização -->
                 <div class="servico" onclick="this.classList.toggle('flip')">
                     <div class="servico-inner">
                         <div class="servico-front">
-                            <img src="imgs/servicos/s6.png" class="img-service" alt="serviço-6">
+                            <img src="imgs/servicos/s6.png" class="img-service" alt="Ícone Canalização">
                             <h3>Canalização</h3>
                         </div>
                         <div class="servico-back">
@@ -173,14 +222,20 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-
+        <!-- ========================================
+             SEÇÃO SOBRE
+             ========================================
+             - Banner imagem full.
+             - Descrição texto.
+             - Cards info: Flip similar aos serviços; JS toggle 'flip' no clique (delegado via querySelectorAll).
+             - Extra info: Localização e contatos (sem flip).
+        -->
         <section id="sobre" class="section">
             <div class="banner-sobre">
-                <img src="imgs/sobre/sobre.jpeg" alt="Sobre a JAS - Jardinagem e Serviços">
+                <img src="imgs/sobre/sobre.jpeg" alt="Banner Sobre a JAS: Equipe e Serviços">
             </div>
 
             <div class="sobre-descricao">
@@ -192,115 +247,123 @@
                 </p>
             </div>
 
-
-        <div class="container-info">
-
-            <div class="card-info">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imgs/sobre/mission.png" alt="Missão">
-                        <h3>Missão</h3>
+            <div class="container-info">
+                <!-- Card Missão: Clique via JS (document.querySelectorAll('.card-info').forEach...) toggle 'flip' -->
+                <div class="card-info">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imgs/sobre/mission.png" alt="Ícone Missão">
+                            <h3>Missão</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>
+                                Garantir soluções sustentáveis e eficientes em jardinagem, automação e serviços,
+                                promovendo bem-estar e qualidade em cada projeto.
+                            </p>
+                        </div>
                     </div>
-                    <div class="card-back">
-                        <p>
-                            Garantir soluções sustentáveis e eficientes em jardinagem, automação e serviços,
-                            promovendo bem-estar e qualidade em cada projeto.
-                        </p>
+                </div>
+
+                <!-- Card Visão -->
+                <div class="card-info">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imgs/sobre/vision.png" alt="Ícone Visão">
+                            <h3>Visão</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>
+                                Ser referência no mercado pela inovação, qualidade e compromisso com o cliente,
+                                liderando com responsabilidade ambiental.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Valores -->
+                <div class="card-info">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imgs/sobre/values.png" alt="Ícone Valores">
+                            <h3>Valores</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>
+                                Ética, sustentabilidade, profissionalismo, confiança, inovação e respeito pelo cliente
+                                e pelo meio ambiente.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="card-info">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imgs/sobre/vision.png" alt="Visão">
-                        <h3>Visão</h3>
-                    </div>
-                    <div class="card-back">
-                        <p>
-                            Ser referência no mercado pela inovação, qualidade e compromisso com o cliente,
-                            liderando com responsabilidade ambiental.
-                        </p>
-                    </div>
+            <div class="extra-info">
+                <div class="location">
+                    <img src="imgs/sobre/location.png" alt="Ícone Localização">
+                    <h3>Localização</h3>
+                    <p>Cabo - Delgado</p>
+                    <p>Cidade de Pemba</p>
+                    <p>Alto-Gingone</p>
+                </div>
+
+                <div class="phone">
+                    <img src="imgs/sobre/phone-call.png" alt="Ícone Telefone">
+                    <h3>Contactos</h3>
+                    <p>84 513 9685</p>
+                    <p>87 081 7058</p>
+                    <p>84 566 1410</p>
                 </div>
             </div>
-
-            <div class="card-info">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imgs/sobre/values.png" alt="Valores">
-                        <h3>Valores</h3>
-                    </div>
-                    <div class="card-back">
-                        <p>
-                            Ética, sustentabilidade, profissionalismo, confiança, inovação e respeito pelo cliente
-                            e pelo meio ambiente.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="extra-info">
-            <div class="location">
-                <img src="imgs/sobre/location.png" alt="location">
-                <h3>Localização</h3>
-                <p>Cabo - Delgado</p>
-                <p>Cidade de Pemba</p>
-                <p>Alto-Gingone</p>
-            </div>
-
-            <div class="phone">
-                <img src="imgs/sobre/phone-call.png" alt="phone-call">
-                <h3>Contactos</h3>
-                <p>84 513 9685</p>
-                <p>87 081 7058</p>
-                <p>84 566 1410</p>
-            </div>
-        </div>
-
-
-
-
         </section>
 
-
+        <!-- ========================================
+             SEÇÃO CONTATO
+             ========================================
+             - Form: POST para backend (ex: Formspree via action no JS ou PHP); campos name para envio.
+             - Labels for= id para acessibilidade; required para validação HTML5.
+             - Botão submit: Envia dados; JS pode interceptar com fetch para AJAX (feedback sem reload).
+             - ID no form para JS targeting.
+        -->
         <section id="contacto" class="section">
             <h2>Fale Connosco</h2>
 
-        <form id="contact-form" method="POST">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+            <form id="contact-form" method="POST" action=""> <!-- Action vazio ou para endpoint (ex: Formspree); JS pode override com fetch -->
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="ex: paulo@gmail.com" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="ex: paulo@gmail.com" required>
 
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
 
-            <button type="submit">Enviar</button>
-        </form>
-
+                <button type="submit">Enviar</button>
+            </form>
         </section>
     </main>
 
-    <!-- footer -->
-     <footer>
+    <!-- ========================================
+         FOOTER: Rodapé com logo e contatos
+         ========================================
+         - Logo img com alt.
+         - Links para WhatsApp (href genérico) e Gmail (mailto funcional).
+         - Copyright centralizado.
+         - Responsivo via CSS.
+    -->
+    <footer>
         <div class="container-footer">
-            <img src="imgs/jaservicos-logo2.jpg" class="logo" alt="jaservicos-logo">
+            <img src="imgs/jaservicos-logo2.jpg" class="logo" alt="Logo JAServiços no Footer">
 
             <div class="nossos-contactos">
                 <h3>Nossos Contactos</h3>
-                <a href="#https://"><img src="imgs/contacto/whatsapp.png" alt="whatsapp"></a>
-                <a href="mailto: jasservicoscontato@gmail.com" rel="external"><img src="imgs/contacto/gmail.png" alt="gmail"></a>
+                <a href="https://wa.me/SeuNumero" target="_blank" rel="noopener"><img src="imgs/contacto/whatsapp.png" alt="WhatsApp Contacto"></a> <!-- Ajuste href para número real -->
+                <a href="mailto:jasservicoscontato@gmail.com" rel="external"><img src="imgs/contacto/gmail.png" alt="Email Contacto"></a>
             </div>
-
         </div>
         <p><strong>&copy; 2025 JASERVICOS, TODOS OS DIREITOS RESERVADOS.</strong></p>
+    </footer>
 
-     </footer>
-
+    <!-- Script JS: Incluído no final para carregamento rápido; controla interações (menu, carousel, flips, scroll). -->
     <script src="script.js"></script>
 </body>
 </html>
