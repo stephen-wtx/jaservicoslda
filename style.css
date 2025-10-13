@@ -426,7 +426,7 @@ header {
         }
 
         .servico {
-            width: 300px;  /* Evita cards muito grandes */
+            width: 200px;  /* Evita cards muito grandes */
             height: 280px;
             perspective: 1000px;
         }
@@ -451,6 +451,7 @@ header {
             position: absolute;
             width: 100%;
             height: 100%;
+            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
@@ -458,6 +459,10 @@ header {
             align-items: center;
             padding: 15px;
             box-sizing: border-box;
+        }
+
+        .servico-front {
+            transform: rotateY(0deg);
         }
 
         .servico-front img {
@@ -710,12 +715,17 @@ footer p {
             position: absolute;
             width: 100%;
             height: 100%;
+            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 15px;
+        }
+
+        .card-front {
+            transform: rotateY(0deg);
         }
 
         .card-front img {
