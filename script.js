@@ -137,3 +137,38 @@ const observer = new IntersectionObserver(entries => {
 scrollSections.forEach(section => {
     observer.observe(section);
 });
+
+
+
+
+
+
+// Dark Mode Toggle Functionality
+const themeToggle = document.getElementById('theme-toggle-icon');
+const themeToggleMobile = document.getElementById('theme-toggle-icon-mobile');
+const htmlElement = document.documentElement;
+
+// Load saved theme from localStorage
+const savedTheme = localStorage.getItem('theme') || 'light';
+htmlElement.setAttribute('data-theme', savedTheme);
+updateThemeIcon(savedTheme);
+
+// Toggle theme on click
+themeToggle.addEventListener('click', toggleTheme);
+themeToggleMobile.addEventListener('click', toggleTheme);
+
+function toggleTheme() {
+    const currentTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    htmlElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
+    updateThemeIcon(currentTheme);
+}
+
+function updateThemeIcon(theme) {
+    const icon = theme === 'dark' ? 'light_mode' : 'dark_mode';
+    themeToggle.textContent = icon;
+    themeToggleMobile.textContent = icon;
+}
+
+// Ensure existing JS (e.g., menu toggle, carousel) is not affected
+// Add your other JavaScript code here (e.g., for navbar toggle, carousel, etc.)

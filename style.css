@@ -31,6 +31,14 @@
     --color-orange: #ffa500;
     --color-white: #fff;
     --font-text: 'Quicksand';
+
+
+    --background-body-dark: #1a1a1a;
+    --text-color-dark: #e0e0e0;
+    --background-service-dark: #2a2a2a;
+    --background-contact-dark: #252525;
+    --background-footer-dark: #333;
+    --card-background-dark: #333;
 }
 
 /* ========================================
@@ -89,7 +97,8 @@ header {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;   
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .navbar .logo img {
@@ -195,6 +204,47 @@ header {
     display: flex;
     justify-content: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+.dark-mode-toggle {
+    cursor: pointer;
+    color: var(--color-orange);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    color: var(--colo-green-hover);
+}
+
+/* Ensure toggle button is visible in both desktop and mobile */
+@media (max-width: 992px) {
+    .dark-mode-toggle {
+        display: block;
+    }
+}
+
+.dropdown_menu .dark-mode-toggle {
+    justify-content: center;
+    padding: 0.7rem;
+}
+
+
+
+
+
 
 /* Responsividade para Header */
 @media (max-width: 992px) {
@@ -851,5 +901,115 @@ footer p {
 @media(max-width: 500px) {
     footer p {
         font-size: 0.5em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+    /* Body */
+    body {
+        background: var(--background-body-dark);
+        color: var(--text-color-dark);
+    }
+
+    /* Header */
+    .navbar li a {
+        color: var(--text-color-dark);
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        color: var(--color-green);
+    }
+
+    /* Carousel */
+    .carousel-container {
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
+
+    /* Sections */
+    #apresentacao h2,
+    #servicos h2,
+    #contacto h2,
+    .sobre-descricao h2 {
+        color: var(--text-color-dark);
+    }
+
+    #servicos {
+        background: var(--background-service-dark);
+    }
+
+    .servico-inner {
+        background: var(--card-background-dark);
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+
+    #sobre {
+        background: var(--background-service-dark);
+    }
+
+    .sobre-descricao p {
+        color: var(--text-color-dark);
+    }
+
+    .card-inner {
+        background: var(--card-background-dark);
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .extra-info {
+        background: var(--card-background-dark);
+    }
+
+    #contacto {
+        background: var(--background-contact-dark);
+    }
+
+    #contacto form {
+        background: var(--card-background-dark);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    #contacto label {
+        color: var(--text-color-dark);
+    }
+
+    #contacto input,
+    #contacto textarea {
+        border: 1px solid #555;
+        background: #2a2a2a;
+        color: var(--text-color-dark);
+    }
+
+    #contacto input:focus,
+    #contacto textarea:focus {
+        border-color: var(--color-green);
+        box-shadow: 0 0 6px rgba(101, 189, 77, 0.3);
+    }
+
+    /* Footer */
+    footer {
+        background: var(--background-footer-dark);
     }
 }
